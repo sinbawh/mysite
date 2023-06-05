@@ -4,7 +4,7 @@ import datetime
 import pytz
 
 def home_view(request):
-    current_time = datetime.now( pytz.timezone('Asia/Tehran'))
+    current_time = datetime.datetime.now( pytz.timezone('Asia/Tehran'))
     posts = Post.objects.filter(published_date__lte=current_time)
     context = {'posts' : posts}
     return render(request, 'blog/blog-home.html' , context)
