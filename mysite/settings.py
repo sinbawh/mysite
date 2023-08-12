@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,35 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',
+    'django.contrib.humanize',
+    'django_extensions',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'robots',
+    'debug_toolbar',
+    "taggit",
+    'django_summernote',
+    'captcha',
+    'accounts',
 ]
+
+#sites framework
+SITE_ID = 2
+
+# robots
+ROBOTS_USE_HOST = True
+
+
+# SUMMERNOTE configs
+SUMMERNOTE_THEME = 'bs4'
+
+
+#captcha admin settings
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,9 +78,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+
+
 
 TEMPLATES = [
     {
@@ -130,3 +163,17 @@ STATICFILES_DIRS = [BASE_DIR /"statics"]
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+#email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  # Use 465 for SSL
+EMAIL_USE_TLS = True  # Use False for SSL
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'sinabahmanismurf@gmail.com'  
+EMAIL_HOST_PASSWORD = 'Sina2001Bahmani'
