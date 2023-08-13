@@ -165,4 +165,4 @@ EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Use False for SSL
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'sina2016bahmani@gmail.com'  
-EMAIL_HOST_PASSWORD = 'ParaSina13'
+EMAIL_HOST_PASSWORD = '******'
