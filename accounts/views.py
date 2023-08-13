@@ -9,6 +9,7 @@ import random
 import string
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 def login_view(request):
@@ -42,12 +43,15 @@ def logout_view(request):
 def signup_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
-            form = UserCreationForm(request.POST)
+            form = CustomUserCreationForm(request.POST)
             if form.is_valid():
-                form.save()
-                return redirect('/')
-        return render(request, 'accounts/signup.html')
-    
+                user = form.save()
+                # Log the user in after registration
+                login(request, user)
+                return redirect('/')  # Replace with your desired redirect URL
+        else:
+            form = CustomUserCreationForm()
+        return render(request, 'accounts/signup.html', {'form': form})
     else:
         return redirect('/')
     
@@ -75,7 +79,7 @@ def forgot_password(request):
             recipient_list = [email]
             send_mail(subject, message, from_email, recipient_list)
 
-            return redirect('accounts/login')  # Redirect to your login page
+            return redirect('/') # Redirect to your login page
         else:
             # Handle the case where the email doesn't match any user
             pass

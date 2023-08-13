@@ -52,8 +52,7 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
-#sites framework
-SITE_ID = 2
+
 
 # robots
 ROBOTS_USE_HOST = True
@@ -105,15 +104,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
+
 
 
 # Password validation
@@ -153,12 +146,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
 
-STATICFILES_DIRS = [BASE_DIR /"statics"]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -167,7 +156,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 #email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -175,5 +164,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Use False for SSL
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'sinabahmanismurf@gmail.com'  
-EMAIL_HOST_PASSWORD = 'Sina2001Bahmani'
+EMAIL_HOST_USER = 'sina2016bahmani@gmail.com'  
+EMAIL_HOST_PASSWORD = 'ParaSina13'
