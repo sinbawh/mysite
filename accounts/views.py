@@ -9,7 +9,8 @@ import random
 import string
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm 
+
 # Create your views here.
 
 def login_view(request):
@@ -40,6 +41,8 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
+#signup
 def signup_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
@@ -58,30 +61,3 @@ def signup_view(request):
 
 
 
-def forgot_password(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            user = None
-
-        if user:
-            # Generate a temporary password
-            temp_password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-            user.set_password(temp_password)
-            user.save()
-
-            # Send the temporary password to the user's email
-            subject = 'Password Reset'
-            message = f'Your new password: {temp_password}'
-            from_email = settings.EMAIL_HOST_USER
-            recipient_list = [email]
-            send_mail(subject, message, from_email, recipient_list)
-
-            return redirect('/') # Redirect to your login page
-        else:
-            # Handle the case where the email doesn't match any user
-            pass
-
-    return render(request, 'accounts/forgot_password.html')

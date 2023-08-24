@@ -50,8 +50,11 @@ INSTALLED_APPS = [
     'django_summernote',
     'captcha',
     'accounts',
+    'crispy_forms',
+    "crispy_bootstrap4",
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 
 # robots
@@ -81,6 +84,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
 
 
 
@@ -159,10 +163,10 @@ INTERNAL_IPS = [
 
 
 #email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587  # Use 465 for SSL
-EMAIL_USE_TLS = True  # Use False for SSL
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'sina2016bahmani@gmail.com'  
-EMAIL_HOST_PASSWORD = '******'
+EMAIL_HOST_USER = 'sinabahmani083@gmail.com' #your email-id
+EMAIL_HOST_PASSWORD = 'nxoxizberznwmssz' #your password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'sinabahmani083@gmail.com'

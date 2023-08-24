@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Django Shell",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "shell",
+        ],
+        "django": true,
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "172.20.70...:8005",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "runserver",
+          "172.20.70.249:8005",
+        ],
+        "django": true,
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "localhost:8000",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "runserver",
+          "--settings=setting.dev",
+        ],
+        "django": true,
+        "console": "integratedTerminal",
+        "justMyCode": false
+      }
+    ]
+  }
+  
