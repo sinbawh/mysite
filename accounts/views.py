@@ -10,6 +10,7 @@ import string
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from .forms import CustomUserCreationForm 
+from django.contrib import messages
 
 # Create your views here.
 
@@ -26,9 +27,9 @@ def login_view(request):
                     login(request, user)
                     return redirect('/')  # Replace 'home' with your desired redirect URL
                 else:
-                    error_message = "User not found"
+                    messages.add_message(request,messages.ERROR,'user not found')
             else:
-                error_message = "Invalid login credentials"
+                messages.add_message(request,messages.ERROR,'Wrong username or password , please try again')
         else:
             form = CustomAuthenticationForm()
 
@@ -50,9 +51,11 @@ def signup_view(request):
             if form.is_valid():
                 user = form.save()
                 # Log the user in after registration
-                login(request, user)
-                return redirect('/')  # Replace with your desired redirect URL
+                return redirect('accounts:login')  # Replace with your desired redirect URL
+            else:
+                messages.add_message(request,messages.ERROR,'Invalid trying for creating account')
         else:
+            
             form = CustomUserCreationForm()
         return render(request, 'accounts/signup.html', {'form': form})
     else:
