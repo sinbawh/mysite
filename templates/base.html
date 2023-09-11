@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{%load static %}
+{%load static %} {% load compress %}
 <html lang="zxx" class="no-js">
   <head>
     <!-- Mobile Specific Meta -->
@@ -24,6 +24,7 @@
       href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
       rel="stylesheet"
     />
+    {% compress css %}
     <!--
         CSS
         ============================================= -->
@@ -36,6 +37,7 @@
     <link rel="stylesheet" href="{%static 'css/animate.min.css'%}" />
     <link rel="stylesheet" href="{%static 'css/owl.carousel.css'%}" />
     <link rel="stylesheet" href="{%static 'css/main.css'%}" />
+    {% endcompress %}
   </head>
   <body>
     <header id="header">
@@ -214,11 +216,10 @@
       </div>
     </footer>
     <!-- End footer Area -->
-
+    {% compress js %}
     <script src="{% static 'js/vendor/jquery-2.2.4.min.js'%}"></script>
     <script src="{% static 'js/popper.min.js'%}"></script>
     <script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
     <script src="{% static 'js/jquery-ui.js'%}"></script>
     <script src="{% static 'js/easing.min.js'%}"></script>
     <script src="{% static 'js/hoverIntent.js'%}"></script>
@@ -229,5 +230,7 @@
     <script src="{% static 'js/owl.carousel.min.js'%}"></script>
     <script src="{% static 'js/mail-script.js'%}"></script>
     <script src="{% static 'js/main.js'%}"></script>
+    {% endcompress %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
   </body>
 </html>

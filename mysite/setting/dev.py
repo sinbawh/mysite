@@ -35,3 +35,29 @@ MEDIA_ROOT = BASE_DIR /'media'
 STATICFILES_DIRS = [BASE_DIR /"statics"]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Enable compressor
+COMPRESS_ENABLED = True
+
+# Define the URL where compressed files will be served from
+COMPRESS_URL = '/static/'
+
+# Define the directory where compressed files will be stored
+COMPRESS_ROOT = 'static/'
+
+# Specify which file types should be compressed
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+    ('text/x-sass', 'django_libsass.SassCompiler'),
+)
+
+COMPRESS_OFFLINE = True
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+#-------------------------------------------------------------------
+
+MAINTENANCE_MODE = False

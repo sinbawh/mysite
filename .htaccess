@@ -1,0 +1,16 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/thesinab/project"
+PassengerBaseURI "/"
+PassengerPython "/home/thesinab/virtualenv/project/3.8/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# Redirect www.thesinabahmani.ir and thesinabahmani.ir to https://thesinabahmani.ir
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.thesinabahmani\.ir [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://thesinabahmani.ir/$1 [R=301,L]
+
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END

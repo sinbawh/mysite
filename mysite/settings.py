@@ -23,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e!3)0_%dtx_3ygcf(e5x579ye71w+gf^v3fqak2r+5-+xcov0f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'accounts',
     'crispy_forms',
     "crispy_bootstrap4",
+    'compressor',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
@@ -180,6 +180,3 @@ DEFAULT_FROM_EMAIL = 'sinabahmani083@gmail.com'
 
 
 
-#-------------------------------------------------------------------
-
-MAINTENANCE_MODE = True
